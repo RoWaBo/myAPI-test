@@ -1,4 +1,6 @@
 import { fetchMyApi } from "./fetch-animals.js"
+import { addInfoBox } from "./info-box.js"
+
 const heading = document.querySelector(".animal-details__heading") 
 const table = document.querySelector(".valuepair-table")
 const animalID = new URLSearchParams(window.location.search).get("id")
@@ -25,3 +27,4 @@ async function printSingleAnimal() {
     }
 }
 
+document.querySelector("#deleteAnimal").addEventListener('click', () => addInfoBox(animalID))

@@ -1,12 +1,6 @@
 
-.animal-details__heading {
-    text-align: center;
-    margin-top: 2rem;
-}
-
 .valuepair-table {
-    margin: 1rem auto;
-    width: 450px;
+    width: 100%;
     border-collapse: collapse;
     
     &__row {
@@ -24,5 +18,24 @@
     &__value {
         width: 50%;
         padding: 1rem;
+    }
+}
+
+.animal-details {
+    margin: 1rem auto;
+    width: 450px;
+
+    &__container {
+        margin: 3rem 0 .5rem;
+        display: flex;
+        align-items: center;
+
+        &>:last-child {
+            margin-left: 1rem;
+        }
+    }
+    &__heading {
+        text-transform: capitalize;
+        margin-right: auto;    
     }
 }
