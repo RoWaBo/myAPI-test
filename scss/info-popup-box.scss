@@ -45,5 +45,10 @@
         background: $color-highlight;
         color: white;
         font-size: 16px;
+        cursor: pointer;
+        transition: 200ms;
+        &:hover {
+            background-color: lighten($color-highlight, $amount: 10);
+        }   
     }
 }

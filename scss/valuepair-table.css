@@ -1,5 +1,7 @@
 .valuepair-table {
   width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
   border-collapse: collapse;
 }
 
@@ -12,12 +14,14 @@
 
 .valuepair-table__key {
   width: 50%;
-  text-align: left;
+  text-align: center;
   padding: 1rem;
   font-weight: 500;
+  border: solid #dddddd 1px;
 }
 
 .valuepair-table__value {
+  text-align: center;
   width: 50%;
   padding: 1rem;
 }
@@ -28,7 +32,7 @@
 }
 
 .animal-details__container {
-  margin: 3rem 0 .5rem;
+  margin: 3rem 0 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

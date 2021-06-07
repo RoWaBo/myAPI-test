@@ -20,7 +20,7 @@ async function printAnimals() {
                 <a href="" class="list-content__edit icon"><i class="fas fa-edit"></i></a>
                 <div class="list-content__delete icon" data-id="${animal._id}"><i class="fas fa-trash-alt"></i></div>                    
             </div>
-            <a href="/animal-details/?id=${animal._id}" class="list-content__view">VIEW</a>`
+            <a href="/animal-details/?id=${animal._id}" class="list-content__view"><i class="fas fa-chevron-circle-right"></i></a>`
 
         animalList.append(li)
     })
