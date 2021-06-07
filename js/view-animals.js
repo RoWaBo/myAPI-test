@@ -27,6 +27,5 @@ async function printAnimals() {
 }
 
 document.addEventListener('click', e => {
-    e.preventDefault()
     if (e.target.classList.contains("list-content__delete")) addInfoBox(e.target.dataset.id)
 })

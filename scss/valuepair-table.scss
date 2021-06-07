@@ -1,7 +1,12 @@
 
+.animal-details__heading {
+    text-align: center;
+    margin-top: 2rem;
+}
+
 .valuepair-table {
-    margin: 3rem auto;
-    width: 400px;
+    margin: 1rem auto;
+    width: 450px;
     border-collapse: collapse;
     
     &__row {
@@ -13,11 +18,11 @@
     &__key {
         width: 50%;
         text-align: left;
-        padding: .5rem;
+        padding: 1rem;
         font-weight: 500;
     }
     &__value {
         width: 50%;
-        padding: .5rem;
+        padding: 1rem;
     }
 }
