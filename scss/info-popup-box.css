@@ -1,0 +1,49 @@
+.overlay {
+  background-color: rgba(0, 0, 0, 0.609);
+  position: absolute;
+  padding: 0 .5rem;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+}
+
+.info-popup {
+  background-color: white;
+  padding: 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 195px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 15px grey;
+          box-shadow: 0 2px 15px grey;
+  position: fixed;
+  bottom: 30%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.info-popup__message {
+  font-size: 15px;
+  text-align: center;
+}
+
+.button-container {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 1rem auto;
+}
+
+.button-container > :first-child {
+  margin-right: 1rem;
+}
+
+.button-container > * {
+  padding: .5rem;
+}
+/*# sourceMappingURL=info-popup-box.css.map */

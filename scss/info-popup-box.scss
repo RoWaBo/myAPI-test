@@ -1,0 +1,42 @@
+.overlay {
+    background-color: rgba(0, 0, 0, 0.609);
+    position: absolute;
+    padding: 0 .5rem;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+}
+
+.info-popup {
+    background-color: white;
+    padding: 1rem;
+    width: fit-content;
+    min-width: 195px;
+    border-radius: 5px;
+    box-shadow: 0 2px 15px grey;
+    position: fixed;
+    bottom: 30%;
+    left: 50%;
+    // centers the box
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    &__message {
+        font-size: 15px;
+        text-align: center;    
+    }
+}
+
+.button-container {
+    width: fit-content;
+    margin: 1rem auto;
+
+    & > :first-child {
+        margin-right: 1rem;
+    }
+    & > * {
+        padding: .5rem;
+    }
+}

@@ -1,0 +1,25 @@
+.valuepair-table {
+  margin: 3rem auto;
+  width: 400px;
+  border-collapse: collapse;
+}
+
+.valuepair-table__row {
+  width: 100%;
+  text-transform: capitalize;
+  border: solid #dddddd 1px;
+  padding: .5rem;
+}
+
+.valuepair-table__key {
+  width: 50%;
+  text-align: left;
+  padding: .5rem;
+  font-weight: 500;
+}
+
+.valuepair-table__value {
+  width: 50%;
+  padding: .5rem;
+}
+/*# sourceMappingURL=valuepair-table.css.map */
