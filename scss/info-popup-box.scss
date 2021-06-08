@@ -33,7 +33,7 @@
 
 .button-container {
     width: fit-content;
-    margin: 1rem auto 0;
+    margin: 2rem auto 0;
 
     & > :first-child {
         margin-right: 1rem;
@@ -45,6 +45,7 @@
         background: $color-highlight;
         color: white;
         font-size: 16px;
+        min-width: 83px;
         cursor: pointer;
         transition: 200ms;
         &:hover {
