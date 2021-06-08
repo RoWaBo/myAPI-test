@@ -17,7 +17,7 @@ async function printAnimals() {
                 <h2 class="list-content__type">${animal.type}</h2>                    
             </div>
             <div class="list-content__icon-container">
-                <a href="" class="list-content__edit icon"><i class="fas fa-edit"></i></a>
+                <a href="/animal-details/?id=${animal._id}&edit=true" class="list-content__edit icon"><i class="fas fa-edit"></i></a>
                 <div class="list-content__delete icon" data-id="${animal._id}"><i class="fas fa-trash-alt"></i></div>                    
             </div>
             <a href="/animal-details/?id=${animal._id}" class="list-content__view"><i class="fas fa-chevron-circle-right"></i></a>`
