@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,44 +10,52 @@
     <link rel="stylesheet" href="/scss/valuepair-table.css">
     <title>Create animal</title>
 </head>
+
 <body>
     <header>
         <nav>
             <ul class="menu">
                 <li class="menu__item"><a href="/" class="menu__link">view animals</a></li>
-                <li class="menu__item"><a href="/create-animal" class="menu__link">create animal</a></li>
+                <li class="menu__item"><a href="/create-animal" class="menu__link highlight">create animal</a></li>
             </ul>
         </nav>
     </header>
-    <table class="valuepair-table">
-        <tr class="valuepair-table__row">
-            <th class="valuepair-table__key">Name</th>
-            <td class="valuepair-table__value"><input type="text"></td>
-        </tr>
-        <tr class="valuepair-table__row">
-            <th class="valuepair-table__key">Type</th>
-            <td class="valuepair-table__value"><input type="text"></td>
-        </tr>
-        <tr class="valuepair-table__row">
-            <th class="valuepair-table__key">Breed</th>
-            <td class="valuepair-table__value"><input type="text"></td>
-        </tr>
-        <tr class="valuepair-table__row">
-            <th class="valuepair-table__key">Age</th>
-            <td class="valuepair-table__value"><input type="text"></td>
-        </tr>
-        <tr class="valuepair-table__row">
-            <th class="valuepair-table__key">Sex</th>
-            <td class="valuepair-table__value"><input type="text"></td>
-        </tr>
-        <tr class="valuepair-table__row">
-            <th class="valuepair-table__key">Colors</th>
-            <td class="valuepair-table__value"><input type="text" placeholder="color1, color2, color3 "></td>
-        </tr>
-    </table>
-    <button id="saveAnimal">SAVE</button>
-    <button id="resetTable">RESET</button>    
-   <!-- <form action="" id="createAnimal">
+    <main>
+        <form class="form-create-animal">
+            <table class="valuepair-table">
+                <tr class="valuepair-table__row">
+                    <th class="valuepair-table__key">Name</th>
+                    <td class="valuepair-table__value"><input type="text" required></td>
+                </tr>
+                <tr class="valuepair-table__row">
+                    <th class="valuepair-table__key">Type</th>
+                    <td class="valuepair-table__value"><input type="text" required></td>
+                </tr>
+                <tr class="valuepair-table__row">
+                    <th class="valuepair-table__key">Breed</th>
+                    <td class="valuepair-table__value"><input type="text" required></td>
+                </tr>
+                <tr class="valuepair-table__row">
+                    <th class="valuepair-table__key">Age</th>
+                    <td class="valuepair-table__value"><input type="text" required></td>
+                </tr>
+                <tr class="valuepair-table__row">
+                    <th class="valuepair-table__key">Sex</th>
+                    <td class="valuepair-table__value"><input type="text" required></td>
+                </tr>
+                <tr class="valuepair-table__row">
+                    <th class="valuepair-table__key">Colors</th>
+                    <td class="valuepair-table__value"><input type="text" placeholder="ex: color1, color2" required>
+                    </td>
+                </tr>
+            </table>
+            <div class="button-container">
+                <button type="submit" value="submit" id="saveAnimal">SAVE</button>
+                <button type="reset" id="resetTable">RESET</button>
+            </div>
+        </form>
+    </main>
+    <!-- <form action="" id="createAnimal">
        <input type="text" name="type" placeholder="type" id="type">
        <input type="text" name="breed" placeholder="breed" id="breed">
        <input type="text" name="name" placeholder="name" id="name">
@@ -56,4 +65,5 @@
        <button type="submit">Create animal</button>
    </form>  -->
 </body>
+
 </html>

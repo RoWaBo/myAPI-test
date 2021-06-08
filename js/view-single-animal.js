@@ -19,7 +19,7 @@ async function printSingleAnimal() {
             if (typeof value === "object") value = value.join(", ")
 
             row.innerHTML = `
-                <th class="valuepair-table__key">${key}:</th>
+                <th class="valuepair-table__key">${key}</th>
                 <td class="valuepair-table__value">${value}</td>`
 
             table.append(row)             
@@ -27,4 +27,38 @@ async function printSingleAnimal() {
     }
 }
 
+function createAnimal() {
+    const tableKeys = document.querySelectorAll(".valuepair-table__key");
+    const tableValues = document.querySelectorAll(".valuepair-table__value");
+    let animalObject = {};
+
+    for (let i = 0; i < tableKeys.length; i++) {
+        const tableKey = tableKeys[i].innerText.toLowerCase()
+        const tableValue = tableValues[i].innerText.toLowerCase()
+
+        if (tableKey === "colors") {
+            animalObject[tableKey] = tableValue.split(", ")
+        } else {
+            animalObject[tableKey] = tableValue
+        }
+    }
+    importInputsToTable()
+    return animalObject
+}
+
+function importInputsToTable() {
+    const tableValues = document.querySelectorAll(".valuepair-table__value");
+    tableValues.forEach(value => {
+        const input = document.createElement('input')
+        input.setAttribute("type", "text")
+        console.log(value.innerText);
+        input.value = value.innerText
+        value.innerText = ""
+        value.append(input)
+    })
+}
+
 document.querySelector("#deleteAnimal").addEventListener('click', () => addInfoBox(animalID))
+document.querySelector("#editAnimal").addEventListener('click', () => {
+   console.log(createAnimal()); 
+})
