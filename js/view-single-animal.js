@@ -27,38 +27,81 @@ async function printSingleAnimal() {
     }
 }
 
-function createAnimal() {
+function createAnimal(headingInput) {
     const tableKeys = document.querySelectorAll(".valuepair-table__key");
-    const tableValues = document.querySelectorAll(".valuepair-table__value");
+    const tableValues = document.querySelectorAll(".valuepair-table input");
     let animalObject = {};
+
+    animalObject["name"] = headingInput.value
 
     for (let i = 0; i < tableKeys.length; i++) {
         const tableKey = tableKeys[i].innerText.toLowerCase()
-        const tableValue = tableValues[i].innerText.toLowerCase()
+        const tableValue = tableValues[i].value.toLowerCase()
 
         if (tableKey === "colors") {
             animalObject[tableKey] = tableValue.split(", ")
-        } else {
+        }
+        else {
             animalObject[tableKey] = tableValue
         }
     }
-    importInputsToTable()
-    return animalObject
+    patchAnimal(animalObject)
 }
 
 function importInputsToTable() {
-    const tableValues = document.querySelectorAll(".valuepair-table__value");
+    let tableValues = document.querySelectorAll(".valuepair-table__value");
+    const nameHeading = document.querySelector(".animal-details__heading");
+    const headingInput = document.createElement('input')
+
+    headingInput.setAttribute("type", "text")
+    headingInput.value = nameHeading.innerText
+    nameHeading.innerText = ""
+
+    nameHeading.append(headingInput)
+
     tableValues.forEach(value => {
         const input = document.createElement('input')
+
         input.setAttribute("type", "text")
-        console.log(value.innerText);
         input.value = value.innerText
         value.innerText = ""
+
         value.append(input)
     })
+
+    tableValues = document.querySelectorAll("input");
+    tableValues[0].focus()
+
+    addBtns(headingInput)
+}
+
+function addBtns(headingInput) {
+    const div = document.createElement('div')
+    div.classList.add("button-container")
+    div.innerHTML = `
+        <button id="saveAnimal">SAVE</button>
+        <button id="cancel">CANCEL</button>
+    `
+    document.querySelector("main").append(div)
+    document.querySelector("#saveAnimal").addEventListener("click", () => createAnimal(headingInput))
+    document.querySelector("#cancel").addEventListener("click", () => location.reload())
+}
+
+function patchAnimal(animalObject) {
+    fetch(`http://rowabo-myapi.herokuapp.com/api/v1/animals/${animalID}`, {
+        "method": "PATCH",
+        "headers": {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer asdjhfak354723ghwf2bf"
+        },
+        "body": JSON.stringify(animalObject)
+    })
+    .then(ress => {
+        console.log(ress);
+        location.reload()   
+    })
+    .catch(err => console.error(err))
 }
 
 document.querySelector("#deleteAnimal").addEventListener('click', () => addInfoBox(animalID))
-document.querySelector("#editAnimal").addEventListener('click', () => {
-   console.log(createAnimal()); 
-})
+document.querySelector("#editAnimal").addEventListener('click', () => importInputsToTable())

@@ -217,6 +217,14 @@ h2 {
   text-align: center;
 }
 
+.animal-details__heading input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  font-weight: 600;
+}
+
 .form-create-animal {
   margin: 3rem auto;
 }
