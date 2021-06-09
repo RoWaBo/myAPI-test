@@ -4,12 +4,12 @@ import { addInfoBox } from "./info-box.js"
 const heading = document.querySelector(".animal-details__heading") 
 const table = document.querySelector(".valuepair-table")
 const animalID = new URLSearchParams(window.location.search).get("id")
-const enableEdit = new URLSearchParams(window.location.search).get("edit")
+const canEdit = new URLSearchParams(window.location.search).get("edit")
 
 init()
 async function init() {
     await printSingleAnimal()
-    if (enableEdit === "true") importInputsToTable()    
+    if (canEdit === "true") importInputsToTable()    
 }
 
 async function printSingleAnimal() {
@@ -90,12 +90,14 @@ function addBtns(headingInput) {
     `
     document.querySelector("main").append(div)
     document.querySelector("#saveAnimal").addEventListener("click", () => createAnimal(headingInput))
-    document.querySelector("#cancel").addEventListener("click", () => {
-        console.log('cancel triggered');
-        const urlParams = new URLSearchParams(window.location.search)
+    document.querySelector("#cancel").addEventListener("click", () => { disableEditing() })
+}
+function disableEditing() {
+    const urlParams = new URLSearchParams(window.location.search)
+    if (urlParams) {
         urlParams.delete('edit')
         window.location.search = urlParams    
-    })
+    }  
 }
 
 function patchAnimal(animalObject) {
@@ -109,7 +111,7 @@ function patchAnimal(animalObject) {
     })
     .then(ress => {
         console.log(ress);
-        location.reload()   
+        disableEditing()   
     })
     .catch(err => console.error(err))
 }

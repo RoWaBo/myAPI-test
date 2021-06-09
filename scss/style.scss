@@ -3,9 +3,11 @@
 // URL IMPORTS
 @import url("https://use.fontawesome.com/releases/v5.0.6/css/all.css");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
-// SCSS IMPORTS
-@import "./variables.scss";
-@import "./info-popup-box.scss";
+
+// VARS
+// $color-highlight: #339af0;
+$color-highlight: rgb(69, 72, 144);
+$color-light: #535353;
 
 /* BOILER PLATE START */
 *{
@@ -27,6 +29,8 @@ a{
 ul{
     list-style: none;
 }
+
+// GENERAL RULES
 .icon {
     font-size: 1.5rem;
     color: #6a6c7a;
@@ -49,7 +53,6 @@ h2 {
 .highlight {
     font-weight: 600;    
 }
-
 .menu {
     display: flex;
     justify-content: center;
@@ -119,7 +122,6 @@ h2 {
 }
 
 // ==== CONTENT CREATE ANIMALS ====
-
 .valuepair-table input{
     width: 100%;
     border: none;
@@ -137,4 +139,104 @@ h2 {
 
 .form-create-animal {
     margin: 3rem auto;
+}
+
+// ==== VALUEPAIR-TABLE ====
+.valuepair-table {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    
+    &__row {
+        width: 100%;
+        text-transform: capitalize;
+        border: solid #dddddd 1px;
+        padding: .5rem;
+    }
+    &__key {
+        width: 50%;
+        text-align: center;
+        padding: 1rem;
+        font-weight: 500;
+        border: solid #dddddd 1px;
+    }
+    &__value {
+        text-align: center;
+        width: 50%;
+        padding: 1rem;
+    }
+}
+
+.animal-details {
+    margin: 1rem auto;
+    width: 450px;
+
+    &__container {
+        margin: 3rem 0 1rem;
+        display: flex;
+        align-items: center;
+        &>:last-child {
+            margin-left: 1rem;
+        }
+    }
+    &__heading {
+        text-transform: capitalize;
+        margin-right: auto;    
+    }
+}
+
+// ==== POPUP BOX ====
+.overlay {
+    background-color: rgba(0, 0, 0, 0.609);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.info-popup {
+    background-color: white;
+    padding: 1rem;
+    width: fit-content;
+    min-width: 195px;
+    border-radius: 5px;
+    box-shadow: 0 2px 15px grey;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    // centers the box
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    &__message {
+        font-size: 15px;
+        text-align: center;    
+    }
+}
+
+.button-container {
+    width: fit-content;
+    margin: 2rem auto 0;
+
+    & > :first-child {
+        margin-right: 1rem;
+    }
+    & > * {
+        padding: .5rem;
+        border: none;
+        border-radius: 10px;
+        background: $color-highlight;
+        color: white;
+        font-size: 16px;
+        min-width: 83px;
+        cursor: pointer;
+        transition: 200ms;
+        &:hover {
+            background-color: lighten($color-highlight, $amount: 10);
+        }   
+    }
 }
