@@ -15,10 +15,11 @@ function postAnimal() {
         },
         "body": new FormData(form)
     })
-        .then(ress => {
+        .then(async ress => {
             console.log(ress);
+            const result = await ress.json()
             document.querySelector("main").innerHTML = `
-                <h1 style="text-align:center;margin-top:3rem;">Your animal has been saved!</h1>`
+                <h1 style="text-align:center;margin-top:3rem;">${result.name} the ${result.type} has been saved!</h1>`
         })
         .catch(err => console.error(err))
 }

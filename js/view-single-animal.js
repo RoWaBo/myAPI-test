@@ -89,7 +89,7 @@ function addBtns(headingInput) {
         <button id="cancel">CANCEL</button>
     `
     document.querySelector("main").append(div)
-    document.querySelector("#saveAnimal").addEventListener("click", () => { createAnimal(headingInput), disableEditing() })
+    document.querySelector("#saveAnimal").addEventListener("click", () => createAnimal(headingInput))
     document.querySelector("#cancel").addEventListener("click", () => { disableEditing() })
 }
 function disableEditing() {
@@ -111,7 +111,7 @@ function patchAnimal(animalObject) {
     })
     .then(ress => {
         console.log(ress);
-        location.reload()   
+        disableEditing()   
     })
     .catch(err => console.error(err))
 }
