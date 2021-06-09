@@ -79,6 +79,7 @@ function importInputsToTable() {
     tableValues[0].focus()
 
     addBtns(headingInput)
+    if (!canEdit) enableEditing()
 }
 
 function addBtns(headingInput) {
@@ -99,6 +100,11 @@ function disableEditing() {
         window.location.search = urlParams    
     }  
 }
+function enableEditing() {
+    const urlParams = new URLSearchParams(window.location.search)
+    urlParams.set('edit', 'true')
+    window.location.search = urlParams    
+}
 
 function patchAnimal(animalObject) {
     fetch(`http://rowabo-myapi.herokuapp.com/api/v1/animals/${animalID}`, {
@@ -117,4 +123,6 @@ function patchAnimal(animalObject) {
 }
 
 document.querySelector("#deleteAnimal").addEventListener('click', () => addInfoBox(animalID))
-document.querySelector("#editAnimal").addEventListener('click', () => importInputsToTable())
+document.querySelector("#editAnimal").addEventListener('click', () => {
+    if (!canEdit) importInputsToTable()
+})
